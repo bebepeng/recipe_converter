@@ -10,4 +10,12 @@ class RecipeConverter
     end
     recipe_tbs
   end
+
+  def to_cups
+    recipe_cups = []
+    to_tablespoons.each do |ingredient|
+      ingredient.each { |ingredient, tbs| recipe_cups << {ingredient => (tbs/16)} }
+    end
+    recipe_cups
+  end
 end
